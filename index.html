@@ -180,9 +180,9 @@
     
     const maxEarnings = maxProfit(time);
    
-    const earningWays=[maxProfitWays(time,res0,0),
-    maxProfitWays(time,res1,1),
-    maxProfitWays(time,res2,2)]
+   const earningWays=[maxProfitWays(time,res0,0),
+        time>5?maxProfitWays(time,res1,1):undefined,
+        time>10?maxProfitWays(time,res2,2):undefined]
     
     const result=[res0,res1,res2]
     let goodWay=false
@@ -208,14 +208,14 @@
             }
 
     }
-    // if(goodWay===false){
-    //             document.getElementById('possibleWay').innerHTML += 
-    //             `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings} </p>`;
+    if(goodWay===false){
+                document.getElementById('possibleWay').innerHTML += 
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings} </p>`;
            
-    //             document.getElementById('bestWay').innerHTML += 
-    //             `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings}  </p>`;
-    //               document.getElementById('profit').innerHTML = maxEarnings
-    //         }
+                document.getElementById('bestWay').innerHTML += 
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings}  </p>`;
+                  document.getElementById('profit').innerHTML = maxEarnings
+            }
       document.getElementById('result').style.display = 'block';
     }
 </script>
