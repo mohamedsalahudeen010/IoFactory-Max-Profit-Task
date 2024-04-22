@@ -174,18 +174,24 @@ function maxProfit(time) {
 
     
     const maxEarnings = maxProfit(time);
+    console.log(maxEarnings)
+    console.log(`T : ${res[1]} P:${res[0]} C:${res[2]}, ${maxEarnings}`)
+
     const earningWays=[maxProfitWays(time,res0,0),maxProfitWays(time,res1,1),maxProfitWays(time,res2,2)]
     const result=[res0,res1,res2]
-
+    let goodWay=false
     for(let i=0;i<earningWays.length;i++){
+        
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
                 `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
             }
              if(earningWays[i]===maxEarnings){
+                goodWay=true
                 document.getElementById('bestWay').innerHTML += 
                 `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
             }
+            
             if(maxEarnings===0){
                 document.getElementById('possibleWay').innerHTML = 
                 `<p> There is No Possible Ways </p>`;
@@ -194,6 +200,13 @@ function maxProfit(time) {
             }
 
     }
+    if(goodWay===false){
+                document.getElementById('possibleWay').innerHTML += 
+                `<p> T : ${res[1]} P:${res[0]} C:${res[2]}, ${maxEarnings} </p>`;
+           
+                document.getElementById('bestWay').innerHTML += 
+                `<p> T : ${res[1]} P:${res[0]} C:${res[2]}, ${maxEarnings}  </p>`;
+            }
       document.getElementById('result').style.display = 'block';
     }
 </script>
