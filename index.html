@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         .container {
-            max-width: 600px;
+            max-width: 500px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
@@ -79,7 +79,10 @@
         document.getElementById('possibleWay').innerHTML="";
         document.getElementById('bestWay').innerHTML="";
         var time = parseFloat(document.getElementById('number').value);
-        function maxProfit(time) {
+
+
+function maxProfit(time) {
+    //Take initial Profit as Zero
     let profit=0
     //Given Time Consumption 
         const pubTime = 4;
@@ -123,6 +126,7 @@
 
 
     function maxProfitWays(time,arr,index) {
+        //Take initial Profit as Zero
         let profit=0
         //Given Time Consumption 
             const pubTime = 4;
@@ -162,9 +166,7 @@
             
         }
         
-//Take initial Profit as Zero
-     
-   
+ 
     let res=[0,0,0];
     let res0=[0,0,0];
     let res1=[0,0,0];
@@ -178,17 +180,21 @@
     for(let i=0;i<earningWays.length;i++){
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${result[i][1]} P : ${result[i][0]} C : ${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
             }
              if(earningWays[i]===maxEarnings){
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${result[i][1]} P : ${result[i][0]} C : ${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
             }
-    }
+            if(maxEarnings===0){
+                document.getElementById('possibleWay').innerHTML = 
+                `<p> There is No Possible Ways </p>`;
+                document.getElementById('bestWay').innerHTML = 
+                `<p> There is No Best Way </p>`;
+            }
 
-       
-        // document.getElementById('bestWay').textContent = `T : ${res[1]} P:${res[0]} C:${res[2]},${maxEarnings}`;
-        document.getElementById('result').style.display = 'block';
+    }
+      document.getElementById('result').style.display = 'block';
     }
 </script>
 
