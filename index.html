@@ -81,8 +81,7 @@
         var time = parseFloat(document.getElementById('number').value);
 
 
-function maxProfit(time) {
-    //Take initial Profit as Zero
+        function maxProfit(time) {
     let profit=0
     //Given Time Consumption 
         const pubTime = 4;
@@ -96,7 +95,7 @@ function maxProfit(time) {
     //Given Earnings for specific Buildings
         const pubEarning=1000;
         const theatreEarning=1500;
-        const commercialParkEarning=3000;
+        const commercialParkEarning=1500;
     
         let totalEarnings=[];
         if(time<=4){
@@ -148,10 +147,10 @@ function maxProfit(time) {
             }else{
                 let temp=time-pubTime;
                 totalEarnings[0]=temp*pubEarning
-                if(time>=theatreTime){
+                if(time>theatreTime){
                     temp=time-theatreTime;
                     totalEarnings[1]=temp*theatreEarning;
-                    if(time>=commercialParkTime){
+                    if(time>commercialParkTime){
                         temp=time-commercialParkTime;
                         totalEarnings[2] =temp*commercialParkEarning;
                     }
@@ -163,7 +162,12 @@ function maxProfit(time) {
             arr[index]+=1
             return profit+maxProfitWays(time-timeUnit[index],arr,index)
         }
-            
+           
+        if(time<=timeUnit[index]){
+            profit+=totalEarnings[0];
+            arr[0]+=1
+            return profit+maxProfitWays(time-timeUnit[0],arr,0)
+        }
         }
         
  
@@ -174,23 +178,24 @@ function maxProfit(time) {
 
     
     const maxEarnings = maxProfit(time);
-    console.log(maxEarnings)
-    console.log(`T : ${res[1]} P:${res[0]} C:${res[2]}, ${maxEarnings}`)
-
-    const earningWays=[maxProfitWays(time,res0,0),maxProfitWays(time,res1,1),maxProfitWays(time,res2,2)]
+   
+    const earningWays=[maxProfitWays(time,res0,0),
+    maxProfitWays(time,res1,1),
+    maxProfitWays(time,res2,2)]
+    
     const result=[res0,res1,res2]
     let goodWay=false
     for(let i=0;i<earningWays.length;i++){
-        
-            if(earningWays[i]!==undefined){
-                document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
-            }
-             if(earningWays[i]===maxEarnings){
+        if(earningWays[i]===maxEarnings){
                 goodWay=true
                 document.getElementById('bestWay').innerHTML += 
                 `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
             }
+            if(earningWays[i]!==undefined){
+                document.getElementById('possibleWay').innerHTML += 
+                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
+            }
+            
             
             if(maxEarnings===0){
                 document.getElementById('possibleWay').innerHTML = 
