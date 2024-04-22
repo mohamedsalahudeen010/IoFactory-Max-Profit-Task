@@ -71,6 +71,7 @@
     <div class="result" id="result" style="display: none;">
         <p><strong>Possible Ways are:</strong> <span id="possibleWay"></span></p>
         <p><strong>  Best Way:</strong> <span id="bestWay"></span></p>
+        <p><strong> Highest Profit Mr. X can Get:</strong> <span id="profit"></span> Rupees</p>
     </div>
 </div>
 
@@ -190,6 +191,8 @@
                 goodWay=true
                 document.getElementById('bestWay').innerHTML += 
                 `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, RS. ${earningWays[i]} </p>`;
+
+             document.getElementById('profit').innerHTML = maxEarnings
             }
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
@@ -211,6 +214,7 @@
            
                 document.getElementById('bestWay').innerHTML += 
                 `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings}  </p>`;
+                  document.getElementById('profit').innerHTML = maxEarnings
             }
       document.getElementById('result').style.display = 'block';
     }
