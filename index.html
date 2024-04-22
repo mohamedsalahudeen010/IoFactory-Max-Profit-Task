@@ -189,11 +189,11 @@
         if(earningWays[i]===maxEarnings){
                 goodWay=true
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${result[i][1]}   P : ${result[i][0]}   C : ${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, ${earningWays[i]} </p>`;
             }
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${result[i][1]}   P : ${result[i][0]}   C : ${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, ${earningWays[i]} </p>`;
             }
             
             
@@ -207,10 +207,10 @@
     }
     if(goodWay===false){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${res[1]}   P : ${res[0]}   C : ${res[2]}, ${maxEarnings} </p>`;
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, ${maxEarnings} </p>`;
            
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${res[1]}   P : ${res[0]}   C : ${res[2]}, ${maxEarnings}  </p>`;
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, ${maxEarnings}  </p>`;
             }
       document.getElementById('result').style.display = 'block';
     }
