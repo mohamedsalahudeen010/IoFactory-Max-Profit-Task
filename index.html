@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         .container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
@@ -178,11 +178,11 @@
     for(let i=0;i<earningWays.length;i++){
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} P : ${result[i][0]} C : ${result[i][2]}, ${earningWays[i]} </p>`;
             }
              if(earningWays[i]===maxEarnings){
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${result[i][1]} P:${result[i][0]} C:${result[i][2]}, ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} P : ${result[i][0]} C : ${result[i][2]}, ${earningWays[i]} </p>`;
             }
     }
 
