@@ -62,16 +62,21 @@
     <h3>Mr. X owns a large strip of land in Mars</h3>
     <h5>Help Mr. X to get Maximum profit</h5>
     <p>He can build either Theatres, Pubs or Commercial Park.</p>
-    <p>A Theatre (T) takes 5 units of time to build.<br>
-        A Pub (P) takes 4 units of time to develop.<br>
-       A Commercial Park (C) takes 10 units of time to build.</p>
+
+    <div>
+    <p><b>Details :</b> </p>
+    <p>A Theatre takes 5 units of time to build and earn $1500 per time.</p>
+    <p>  A Pub takes 4 units of time to develop and earn $1000 per time.</p>
+    <p>  A Commercial Park takes 10 units of time to build and earn $3000 per time.</p>
+    </div>
+    
     <label for="number">Enter time which Mr. X Want to Spend :</label>
     <input type="number" id="number" name="number" required>
     <button onclick="calculate()">Calculate</button>
     <div class="result" id="result" style="display: none;">
         <p><strong>Possible Ways are:</strong> <span id="possibleWay"></span></p>
         <p><strong>  Best Way:</strong> <span id="bestWay"></span></p>
-        <p><strong> Highest Profit Mr. X can Get:</strong> <span id="profit"></span> Rupees</p>
+        <p><strong> Highest Profit Mr. X can Get:</strong> <span id="profit"></span> $</p>
     </div>
 </div>
 
@@ -190,13 +195,13 @@
         if(earningWays[i]===maxEarnings){
                 goodWay=true
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, RS. ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, $ ${earningWays[i]} </p>`;
 
              document.getElementById('profit').innerHTML = maxEarnings
             }
             if(earningWays[i]!==undefined){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, RS. ${earningWays[i]} </p>`;
+                `<p> T : ${result[i][1]} | P : ${result[i][0]} |  C : ${result[i][2]}, $ ${earningWays[i]} </p>`;
             }
             
             
@@ -210,10 +215,10 @@
     }
     if(goodWay===false){
                 document.getElementById('possibleWay').innerHTML += 
-                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings} </p>`;
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, $ ${maxEarnings} </p>`;
            
                 document.getElementById('bestWay').innerHTML += 
-                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, RS. ${maxEarnings}  </p>`;
+                `<p> T : ${res[1]} | P : ${res[0]} | C : ${res[2]}, $ ${maxEarnings}  </p>`;
                   document.getElementById('profit').innerHTML = maxEarnings
             }
       document.getElementById('result').style.display = 'block';
